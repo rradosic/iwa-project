@@ -8,24 +8,9 @@
         </div>
     </div>
 </header>
-<nav data-gumshoe-header="" id="nav-bar" class="main-nav">
-    <span class="menu-button">IZBORNIK</span>
-    <ul>
-        <li>
-            <a href="#intro" class="">O meni</a>
-        </li>
-        <li>
-            <a href="#projects" class="">Projekti</a>
-        </li>
-        <li>
-            <a href="#experience">Iskustvo</a>
-        </li>
-        <li>
-            <a href="#contact">Kontakt</a>
-        </li>
-    </ul>
-    <a href="/about" title="" class="float-right img-language" aria-label="English version">O autoru</a>
-</nav>
+
+<?php require("partials/nav.iwa.php")?>
+
 <div class="main-content content-container">
     <h1>Hello world</h1>
     <p>Pages are easy!</p>

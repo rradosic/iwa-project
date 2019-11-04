@@ -12,7 +12,7 @@
     <span class="menu-button">IZBORNIK</span>
     <ul>
         <li>
-            <a href="#intro" class="">O meni</a>
+            <a href="#intro" class="">Kategorije</a>
         </li>
         <li>
             <a href="#projects" class="">Projekti</a>
@@ -28,5 +28,7 @@
 </nav>
 <div class="main-content content-container">
     <h1>Robert Radošić</h1>
-    <p>Pitup Zabok</p>
+    <p>rradosic@foi.hr</p>
+    <p>Centar Zabok</p>
+    <p>2019</p>
 </div>
