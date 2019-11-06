@@ -1,11 +1,11 @@
-<nav data-gumshoe-header="" id="nav-bar" class="main-nav">
+<nav id="nav-bar" class="main-nav">
     <span class="menu-button">IZBORNIK</span>
     <ul>
         <li>
-            <a href="#intro" class="">O meni</a>
+            <a href="#intro">Kategorije</a>
         </li>
         <li>
-            <a href="#projects" class="">Projekti</a>
+            <a href="#projects">Projekti</a>
         </li>
         <li>
             <a href="#experience">Iskustvo</a>
@@ -14,5 +14,5 @@
             <a href="#contact">Kontakt</a>
         </li>
     </ul>
-    <a href="/about" title="" class="float-right img-language" aria-label="English version">O autoru</a>
+    <a href="/login" title="" class="float-right margin-right" aria-label="English version">Prijava</a>
 </nav>
