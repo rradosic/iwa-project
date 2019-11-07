@@ -8,6 +8,7 @@ use IWA\Route;
 
 class App 
 {
+    protected $dbConnection;
 
     public static function boot()
     {
