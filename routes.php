@@ -23,6 +23,12 @@ Route::get("/login", function(){
     $controller->index();
 });
 
+Route::get("/logout", function(){
+    $controller = new LoginController();
+
+    $controller->logout();
+});
+
 Route::post("/authenticate", function(){
     $controller = new LoginController();
 

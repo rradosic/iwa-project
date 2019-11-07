@@ -29,17 +29,16 @@ class Route
     {
         global $routes;
         $action = trim($uri);
-        if(array_key_exists($action, $routes)){
+        if (array_key_exists($action, $routes)) {
             if ($_SERVER['REQUEST_METHOD'] === $routes[$action]['type']) {
                 $callback = $routes[$action]["callback"];
-                print (call_user_func($callback));
+                print(call_user_func($callback));
+            } else {
+                print("Wrong request method!");
             }
-            else print("Wrong request method!");
-        }
-        else{
+        } else {
             http_response_code(404);
             return View::render('404.iwa.php');
         }
-        
     }
 }

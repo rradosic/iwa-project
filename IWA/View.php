@@ -7,7 +7,9 @@ class View
 
     public static function render($templatePath, $data = null)
     {
-        if($data) extract($data);
+        if ($data) {
+            extract($data);
+        }
         
         require(View::$baseDir.$templatePath);
     }

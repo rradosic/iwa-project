@@ -6,7 +6,7 @@ require_once "./routes.php";
 use IWA\Session;
 use IWA\Route;
 
-class App 
+class App
 {
     protected $dbConnection;
 
@@ -16,5 +16,4 @@ class App
 
         Route::dispatch($_SERVER['REQUEST_URI']);
     }
-
 }

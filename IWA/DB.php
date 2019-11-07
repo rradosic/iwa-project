@@ -5,7 +5,6 @@ use \PDO;
 
 class DB
 {
-
     public static function connect()
     {
         $host = "localhost";
@@ -15,7 +14,6 @@ class DB
 
         try {
             $connection = new PDO('mysql:host='.$host.';dbname='.$db.'', $user, $pass);
-
         } catch (PDOException $e) {
             print "Error!: " . $e->getMessage() . "<br/>";
             die();
@@ -27,7 +25,7 @@ class DB
     public static function executeQuery($query, $attribtes = null)
     {
         $connection = self::connect();
-        if($connection){
+        if ($connection) {
             $query = $connection->prepare($query);
             $query->execute($attribtes);
             self::close($connection);
