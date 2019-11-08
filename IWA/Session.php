@@ -27,6 +27,19 @@ class Session
         return null;
     }
 
+    public static function pull($key)
+    {
+        $value = null;
+        
+        if (self::has($key)) {
+            $value = $_SESSION[$key];
+        }
+
+        unset($_SESSION[$key]);
+
+        return $value;
+    }
+
     public static function invalidate()
     {
         $params = session_get_cookie_params();

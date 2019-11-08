@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    background-image: linear-gradient(to top,#f12711 0%,#f5af19 100%);
+    background-image: linear-gradient(to bottom,#355C7D 0%,#C06C84 100%);
     margin: 0;
     overflow-x: hidden
 }
@@ -20,11 +20,11 @@ a {
 }
 
 a:hover{
-    color: #f5af19;
+    color: #e67e9b;
 }
 
 a.white-text:hover{
-    color: #333;
+    color: #e67e9b;
 }
 
 .margin-right{
@@ -33,7 +33,7 @@ a.white-text:hover{
 
 h2::after {
     background-color: #ddd;
-    background-image: linear-gradient(to top,#f12711 0%,#f5af19 100%);
+    background-image: linear-gradient(to top,#3f4c6b 0%,#606c88 100%);
     display: block;
     content: '';
     width: 5em;
@@ -109,6 +109,47 @@ input,textarea {
     z-index: 0
 }
 
+table {
+    border-collapse: collapse;
+    border:none;
+    width: 100%;
+  }
+  
+  table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    min-width: 150px;
+  }
+
+  table th:first-child {
+    border-top-left-radius: 5px;
+  }
+
+  table th:last-child {
+    border-top-right-radius: 5px;
+  }
+  
+  table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  table tr:hover {background-color: #ddd;}
+
+  .error{
+    padding: 10px;
+    background: #f12711;
+    color: white;
+    margin: 10px;
+  }
+  
+  table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #f5af19;
+    padding: 8px;
+    min-width: 150px;
+    text-align: center;
+    color: white;
+  }
+
 .main-nav {
     transition: padding .5s ease;
     background: #ebebeb;
@@ -164,6 +205,14 @@ input,textarea {
     padding: 6em 4em 2em;
     margin: 0!important;
     background-color: #fff;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.page-title{
+    color: #f5af19;
 }
 
 form>input{

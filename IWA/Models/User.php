@@ -10,4 +10,8 @@ class User extends Model
     
     protected $tableName = 'korisnik';
     protected $idColumn = 'korisnik_id';
+
+    public function fullName(){
+        return $this->ime.' '.$this->prezime;
+    }
 }

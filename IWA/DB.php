@@ -5,7 +5,7 @@ use \PDO;
 
 class DB
 {
-    public static function connect()
+    private static function connect()
     {
         $host = "localhost";
         $user = "root";
@@ -13,7 +13,7 @@ class DB
         $db = "iwa_2019_zb_projekt";
 
         try {
-            $connection = new PDO('mysql:host='.$host.';dbname='.$db.'', $user, $pass);
+            $connection = new PDO('mysql:host='.$host.';dbname='.$db.'', $user, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
         } catch (PDOException $e) {
             print "Error!: " . $e->getMessage() . "<br/>";
             die();
@@ -33,7 +33,7 @@ class DB
         return $query;
     }
 
-    public static function close(&$connection)
+    private static function close(&$connection)
     {
         $connection = null;
     }

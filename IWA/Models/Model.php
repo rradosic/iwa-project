@@ -9,18 +9,28 @@ class Model
     protected $tableName;
     protected $idColumn;
 
-    public function __construct()
+    public function __construct($fields = null)
     {
-        $values = DB::executeQuery(
-            "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = ?;",
-            array($this->tableName)
-        );
-
-        $values->fetchAll();
-
-        foreach ($values as $key => $value) {
-            $this->{$value['COLUMN_NAME']} = null;
+        if(!$fields){
+            $values = DB::executeQuery(
+                "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = ?;",
+                array($this->tableName)
+            );
+    
+            $values->fetchAll();
+    
+            foreach ($values as $key => $value) {
+                $this->{$value['COLUMN_NAME']} = null;
+            }
         }
+        else{
+            foreach ($fields as $key => $value) {
+                $this->{$key} = $value;
+            }
+
+            $this->callCasts();
+        }
+        
     }
 
     public static function find($id)
@@ -29,9 +39,8 @@ class Model
         $row = DB::executeQuery('SELECT * FROM '.$model->getTableName().' WHERE '.$model->getIdColumn().'=?;', array($id));
         $row = $row->fetch(PDO::FETCH_ASSOC);
 
-        foreach ($row as $key => $value) {
-            $model->{$key} = $value;
-        }
+        $model = new static($row);
+
         return $model;
     }
 
@@ -43,11 +52,25 @@ class Model
         $collection = [];
 
         while ($row = $rows->fetch(PDO::FETCH_ASSOC)) {
-            foreach ($row as $key => $value) {
-                $model->{$key} = $value;
-            }
+            $model = new static($row);
+
             array_push($collection, $model);
-            $model = new static();
+        }
+        
+        return $collection;
+    }
+
+    public static function all()
+    {
+        $model = new static();
+        $rows = DB::executeQuery('SELECT * FROM '.$model->getTableName());
+
+        $collection = [];
+
+        while ($row = $rows->fetch(PDO::FETCH_ASSOC)) {
+            $model = new static($row);
+
+            array_push($collection, $model);
         }
         
         return $collection;
@@ -61,5 +84,14 @@ class Model
     public function getIdColumn()
     {
         return $this->idColumn;
+    }
+
+    private function callCasts(){
+        $methods = get_class_methods($this);
+        $castMethods = preg_grep("/(^cast)/", $methods);
+
+        foreach ($castMethods as $key => $value) {
+            $this->{$value}();
+        }
     }
 }

@@ -3,6 +3,7 @@
 use IWA\Controllers\IndexController;
 use IWA\Controllers\AboutController;
 use IWA\Controllers\LoginController;
+use IWA\Controllers\CategoryController;
 use IWA\Route;
 
 Route::get("/", function(){
@@ -33,4 +34,10 @@ Route::post("/authenticate", function(){
     $controller = new LoginController();
 
     $controller->authenticate();
+});
+
+Route::get("/categories", function(){
+    $controller = new CategoryController();
+
+    $controller->index();
 });

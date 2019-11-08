@@ -2,7 +2,7 @@
     <span class="menu-button">IZBORNIK</span>
     <ul>
         <li>
-            <a href="#intro">Kategorije</a>
+            <a href="/categories">Kategorije</a>
         </li>
         <li>
             <a href="#projects">Projekti</a>
@@ -15,7 +15,7 @@
         </li>
     </ul>
     <?php if(IWA\Auth::user()) : ?>
-        <a href="/logout" title="" class="float-right margin-right" aria-label="English version">Odjava</a>
+        <a href="/logout" title="" class="float-right margin-right" aria-label="English version">Odjava (<?= IWA\Auth::user()->fullName() ?>)</a>
     <?php else : ?>
         <a href="/login" title="" class="float-right margin-right" aria-label="English version">Prijava</a>
     <?php endif ?>
