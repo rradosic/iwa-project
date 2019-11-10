@@ -31,9 +31,13 @@ a.white-text:hover{
     margin-right: 5px;
 }
 
+.margin-top{
+    margin-top: 5px;
+}
+
 h2::after {
     background-color: #ddd;
-    background-image: linear-gradient(to top,#3f4c6b 0%,#606c88 100%);
+    background-image: linear-gradient(to top,#3f4c6b 0%,#C06C84 100%);
     display: block;
     content: '';
     width: 5em;
@@ -143,7 +147,7 @@ table {
   table th {
     padding-top: 12px;
     padding-bottom: 12px;
-    background-color: #f5af19;
+    background-color: #C06C84;
     padding: 8px;
     min-width: 150px;
     text-align: center;
@@ -236,13 +240,31 @@ form>.submit-button{
 }
 
 .button-primary {
-    transition: border .2s ease-in-out;
-    background-color: #4455af!important;
-    border: transparent!important
+    background-color: #C06C84;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+a.button-primary{
+    background-color: #f5af19;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    appearance: button;
 }
 
 .button-primary:hover {
-    border: 1.5px solid #fff!important
+    background-color: #b19c70;
+    
 }
 
 .project-card {
@@ -484,10 +506,6 @@ form>.submit-button{
         margin: auto!important
     }
 
-    .container,.main-nav {
-        width: 65rem!important
-    }
-
     .work-titles {
         text-align: center
     }
@@ -535,10 +553,6 @@ form>.submit-button{
 }
 
 @media(min-width: 900px) and (max-width:1200px) {
-    .container,.main-nav {
-        width:95rem!important
-    }
-
     .project-card,.project-card-disabled {
         width: 16em
     }

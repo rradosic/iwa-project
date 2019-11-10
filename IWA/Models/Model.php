@@ -49,15 +49,7 @@ class Model
         $model = new static();
         $rows = DB::executeQuery('SELECT * FROM '.$model->getTableName().' WHERE '.$attribute.'=?;', array($value));
 
-        $collection = [];
-
-        while ($row = $rows->fetch(PDO::FETCH_ASSOC)) {
-            $model = new static($row);
-
-            array_push($collection, $model);
-        }
-        
-        return $collection;
+        return self::addRowsToCollection($rows);
     }
 
     public static function all()
@@ -65,15 +57,7 @@ class Model
         $model = new static();
         $rows = DB::executeQuery('SELECT * FROM '.$model->getTableName());
 
-        $collection = [];
-
-        while ($row = $rows->fetch(PDO::FETCH_ASSOC)) {
-            $model = new static($row);
-
-            array_push($collection, $model);
-        }
-        
-        return $collection;
+        return self::addRowsToCollection($rows);
     }
 
     public function getTableName()
@@ -93,5 +77,17 @@ class Model
         foreach ($castMethods as $key => $value) {
             $this->{$value}();
         }
+    }
+
+    public static function addRowsToCollection($rows){
+        $collection = [];
+
+        while ($row = $rows->fetch(PDO::FETCH_ASSOC)) {
+            $model = new static($row);
+
+            array_push($collection, $model);
+        }
+        
+        return $collection;
     }
 }

@@ -24,7 +24,7 @@ require("./views/template.php")?>
                     <th>Naziv</th>
                     <th>Opis</th>
                     <?php if(Auth::user() && Auth::user()->hasRole('administrator')) : ?>
-                    <th>Obavezna</th>
+                        <th>Obavezna</th>
                     <?php endif ?>
                     <th>Broj projekata</th>
                 </thead>
@@ -42,5 +42,10 @@ require("./views/template.php")?>
                 </tbody>
             </table>
         </div>
+    </div>
+    <div class="flex-center">
+    <?php if(Auth::user() && Auth::user()->hasRole('administrator')) : ?>
+        <a href="/categories/add" class="button-primary margin-top">Dodaj novi</a>
+    <?php endif ?>
     </div>
 </div>

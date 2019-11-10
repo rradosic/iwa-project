@@ -5,7 +5,7 @@
             <a href="/categories">Kategorije</a>
         </li>
         <li>
-            <a href="#projects">Projekti</a>
+            <a href="/projects">Projekti</a>
         </li>
         <li>
             <a href="#experience">Iskustvo</a>

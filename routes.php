@@ -4,6 +4,7 @@ use IWA\Controllers\IndexController;
 use IWA\Controllers\AboutController;
 use IWA\Controllers\LoginController;
 use IWA\Controllers\CategoryController;
+use IWA\Controllers\ProjectController;
 use IWA\Route;
 
 Route::get("/", function(){
@@ -40,4 +41,22 @@ Route::get("/categories", function(){
     $controller = new CategoryController();
 
     $controller->index();
+});
+
+Route::get("/projects", function(){
+    $controller = new ProjectController();
+
+    $controller->index();
+});
+
+Route::get("/projects/create", function(){
+    $controller = new ProjectController();
+
+    $controller->create();
+});
+
+Route::post("/projects/store", function(){
+    $controller = new ProjectController();
+
+    $controller->store();
 });

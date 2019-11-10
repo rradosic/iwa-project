@@ -5,6 +5,9 @@
 <?php require("partials/nav.iwa.php")?>
 
 <div class="main-content content-container">
-    <h1>Hello world</h1>
-    <p>Pages are easy!</p>
+<?php
+        if(IWA\Session::has('error')){
+            require("./views/partials/error.iwa.php");
+        }
+    ?>
 </div>
