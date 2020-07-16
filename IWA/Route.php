@@ -28,10 +28,11 @@ class Route
     public static function dispatch($uri)
     {
         global $routes;
-        $action = trim($uri);
-        if (array_key_exists($action, $routes)) {
-            if ($_SERVER['REQUEST_METHOD'] === $routes[$action]['type']) {
-                $callback = $routes[$action]["callback"];
+        $path = parse_url($uri)['path'];
+        
+        if (array_key_exists($path, $routes)) {
+            if ($_SERVER['REQUEST_METHOD'] === $routes[$path]['type']) {
+                $callback = $routes[$path]["callback"];
                 print(call_user_func($callback));
             } else {
                 print("Wrong request method!");

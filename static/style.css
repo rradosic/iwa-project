@@ -143,6 +143,13 @@ table {
     color: white;
     margin: 10px;
   }
+
+  .success{
+    padding: 10px;
+    background: #63f111;
+    color: black;
+    margin: 10px;
+  }
   
   table th {
     padding-top: 12px;
@@ -154,6 +161,10 @@ table {
     color: white;
   }
 
+  td>a{
+      color: #e4b2c0;
+      cursor: pointer;
+  }
 .main-nav {
     transition: padding .5s ease;
     background: #ebebeb;
@@ -229,9 +240,11 @@ form>label{
 }
 
 form>.submit-button{
-    margin-top: 10px;
+    margin: 10px 0;
     display: block;
 }
+
+
 
 .contact-bg {
     margin: 0!important;
@@ -632,4 +645,16 @@ a.button-primary{
 
 .align-center {
     text-align: center
+}
+
+form>label{
+    display: block;
+}
+
+form>.input{
+    display: block;
+}
+
+.pull-left{
+    float: left;
 }

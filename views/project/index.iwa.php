@@ -1,7 +1,6 @@
 <?php
 
 use IWA\Auth;
-use IWA\Session;
 
 require("./views/template.php")?>
 
@@ -13,9 +12,7 @@ require("./views/template.php")?>
     
     <h2> Moji zahtjevi</h2>
     <?php
-        if(Session::has('error')){
-            require("./views/partials/error.iwa.php");
-        }
+        require("./views/partials/messages.iwa.php");
     ?>
     <div class="flex-center">
         <div>
@@ -32,7 +29,14 @@ require("./views/template.php")?>
                 <tbody>
                     <?php foreach ($projects as $key=>$project) : ?>
                         <tr>
-                            <td><?= $project->naziv ?></td>
+                            <?php if($project->zakljucan == 1 || (Auth::user()->hasRole('voditelj') || Auth::user()->hasRole('administrator'))) { ?>
+                                <td><a href="/projects/edit?id=<?= $project->projekt_id ?>"><?= $project->naziv ?></a></td>
+                            <?php } else { ?>
+                                <td><?= $project->naziv ?></td>
+                            
+                            <?php } ?>
+                            
+
                             <td><?= $project->user()->fullName() ?></td>
                             <td><?= $project->moderator()->fullName() ?></td>
                             <td><?= $project->datum_vrijeme_kreiranja ?></td>

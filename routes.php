@@ -60,3 +60,15 @@ Route::post("/projects/store", function(){
 
     $controller->store();
 });
+
+Route::get("/projects/edit", function(){
+    $controller = new ProjectController();
+
+    $controller->edit();
+});
+
+Route::post("/projects/update", function(){
+    $controller = new ProjectController();
+
+    $controller->update();
+});

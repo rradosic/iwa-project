@@ -2,6 +2,7 @@
 namespace IWA\Models;
 
 use DateTime;
+use IWA\DB;
 
 class Project extends Model {
     protected $tableName = 'projekt';

@@ -20,17 +20,11 @@ class ComposerStaticInitf77a4b7125deccecc27385457b964fd4
         ),
     );
 
-    public static $classMap = array (
-        'IWA\\App' => __DIR__ . '/../..' . '/IWA/App.php',
-        'IWA\\Session' => __DIR__ . '/../..' . '/IWA/Session.php',
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitf77a4b7125deccecc27385457b964fd4::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitf77a4b7125deccecc27385457b964fd4::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitf77a4b7125deccecc27385457b964fd4::$classMap;
 
         }, null, ClassLoader::class);
     }

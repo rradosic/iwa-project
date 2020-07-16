@@ -19,7 +19,7 @@ require("./views/template.php")?>
     ?>
     <div class="">
         <div>
-            <form action="/projects/store" method="POST">
+            <form action="/projects/update?id=<?= $project->projekt_id ?>" method="POST">
                 <?php require("partials/form.iwa.php")?>
             </form>
            

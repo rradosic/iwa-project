@@ -2,6 +2,7 @@
 namespace IWA\Models;
 
 use IWA\DB;
+use IWA\Helpers;
 use \PDO;
 
 class Model
@@ -42,6 +43,39 @@ class Model
         $model = new static($row);
 
         return $model;
+    }
+
+    public static function create($attributes)
+    {
+        $model = new static();
+        if($model->getIdColumn()){
+            $idQuery = 'SELECT MAX('.$model->getIdColumn().') FROM '.$model->getTableName().';';
+            $lastId = DB::executeQuery($idQuery);
+
+            $lastId = reset($lastId->fetch(PDO::FETCH_ASSOC));
+            
+            $attributes[$model->getIdColumn()] = $lastId + 1;
+        }
+        $insertInto = 'INSERT INTO '.$model->getTableName().'('.implode(',',array_keys($attributes)).')';
+        
+        $values = ' VALUES ('."'" . implode("','", $attributes) . "'".')';
+
+        $query = $insertInto.$values.';';
+        DB::executeQuery($query);
+    }
+
+    public static function update($attributes)
+    {
+        $model = new static();
+        if(array_key_exists($model->getIdColumn(), $attributes)){
+            $id = $attributes[$model->getIdColumn()];
+            unset($attributes[$model->getIdColumn()]);
+            $params = http_build_query($attributes, '', ',');
+            $update = 'UPDATE '.$model->getTableName().' SET '. $params.' WHERE '.$model->getIdColumn().'='.$id.';';
+
+            DB::executeQuery($update);
+            
+        }
     }
 
     public static function where($attribute, $value)

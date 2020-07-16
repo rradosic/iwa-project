@@ -22,12 +22,13 @@ class DB
         return $connection;
     }
 
-    public static function executeQuery($query, $attribtes = null)
+    public static function executeQuery($query, $attributes = null)
     {
         $connection = self::connect();
         if ($connection) {
             $query = $connection->prepare($query);
-            $query->execute($attribtes);
+            $query->execute($attributes);
+            
             self::close($connection);
         }
         return $query;

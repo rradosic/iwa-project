@@ -6,6 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'IWA\\App' => $baseDir . '/IWA/App.php',
-    'IWA\\Session' => $baseDir . '/IWA/Session.php',
 );

@@ -14,7 +14,7 @@ require("./views/template.php")?>
     <h2> <?= $title ?> </h2>
     <?php
         if(Session::has('error')){
-            require("./views/partials/error.iwa.php");
+            require("./views/partials/messages.iwa.php");
         }
     ?>
     <div class="flex-center">
